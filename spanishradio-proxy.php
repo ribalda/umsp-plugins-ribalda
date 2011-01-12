@@ -29,6 +29,20 @@ $out .= "Connection: Keep-Alive\r\n";
 $out .= "\r\n";
 
 fwrite($fp, $out);
+
+
+header("Content-Type: audio/mpeg");
+
+# Ignore the original headers
+
+$headerpassed = false;
+while ($headerpassed == false) {
+	$line = fgets($fp);
+	if ( $line == "\r\n" ) {
+		$headerpassed = true;
+	}
+}
+
 set_time_limit(0);
 fpassthru($fp);
 set_time_limit(30);
