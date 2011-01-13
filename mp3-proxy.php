@@ -23,8 +23,15 @@ if (!$fp) {
 	die();
 }
 # Create the HTTP GET request
+if ((isset($itemQuery))&&($itemQuery!=""))
+	$itemQuery="?$itemQuery";
+else
+	$itemQuery="";
 
-$out  = "GET $itemPath?$itemQuery HTTP/1.0\r\n";
+if ((!isset($itemPath))||($itemPath)=="")
+	$itemPath="/";
+
+$out  = "GET $itemPath$itemQuery HTTP/1.0\r\n";
 $out .= "User-Agent: Wget/1.12\r\n";
 $out .= "Accept: */*\r\n";
 $out .= "Host: $itemHost:$itemPort\r\n";
