@@ -10,7 +10,10 @@ if ( $_SERVER[''] == 'HEAD' ) {
 $rawURL = $_GET['itemURL'];
 $parsedURL = parse_url($rawURL);
 $itemHost = $parsedURL['host'];
-$itemPort = $parsedURL['port'];
+if (isset($parsedURL['port']))
+	$itemPort = $parsedURL['port'];
+else
+	$itemPort = 80;
 $itemPath = $parsedURL['path'];
 $itemQuery = $parsedURL['query'];
 
