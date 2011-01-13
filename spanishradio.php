@@ -173,7 +173,7 @@ function _pluginCreateStationList() {
 		}
 		else{
 			if ($radio["use_proxy"])
-				$res= "http://localhost/umsp/plugins/spanishradio-proxy.php?itemURL=".$urls[0];
+				$res= "http://localhost/umsp/plugins/mp3-proxy.php?itemURL=".$urls[0];
 			else
 				$res= $urls[0];
 			$retMediaItems[]=array(
@@ -208,7 +208,7 @@ function _pluginCreateStationItems($url){
 	foreach ($radios as $radio){
 		$n++;
 		if ($use_proxy)
-			$res= "http://localhost/umsp/plugins/spanishradio-proxy.php?itemURL=".$radio;
+			$res= "http://localhost/umsp/plugins/mp3-proxy.php?itemURL=".$radio;
 		else
 			$res= $radio;
 		$retMediaItems[]=array(
