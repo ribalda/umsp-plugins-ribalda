@@ -6,11 +6,51 @@ ccc: Chaos Computer Club events videos and Lounge audios
 
 INSTALL:
 
-If you want to automagically install this scripts in your WDTV. Add this line to the S99user-script file on /tmp/conf and reboot:
+If you want to automagically install this scripts in your WDTV. Add this line to your boot process:
+
 svn export --trust-server-cert --non-interactive --no-auth-cache --force http://svn.github.com/ribalda/umsp-plugins-ribalda.git /tmp/umsp-plugins &
+
 
 Note: While the svn export of github is broken you can use this lines:
 
 cd /tmp
 rm  -fr ribalda-umsp-plugins-ribalda*
 wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master && unzip ribalda-umsp-plugins-ribalda-*zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ &
+
+
+
+Note2: If you have the umsp-svn-spanish file from sombragris you can modify it like the following example to get sombragris, restricted and ribalda plugins automagically
+
+#!/bin/sh
+### 2010 by Sombragris (adapted from S64umsp)
+### GPLv3 - full license located @ /usr/share/LICENSE
+### Stipulations:
+### - this entire header must be left intact
+
+while [ true ] ; do
+	ping -c1 www.google.com 2>/dev/null >/dev/null
+	if [ "$?" == "0" ] ; then
+		if [ -z "`grep -i \^UMSP=\'OFF\' /conf/config`" ] ; then
+			[ -n "`grep -i \^APACHE=\'OFF\' /conf/config`" ] && logger -t $0 "Apache webserver must be on for UMSP to work!!!" && exit 1
+			if [ -z "`grep -i \^UMSP_SVN=\'OFF\' /conf/config`" ] ; then
+
+				logger -t $0 "Exporting all spanish umsp plugins from svn"
+				svn export --non-interactive --no-auth-cache --force http://umsp-pack.svn.sourceforge.net/svnroot/umsp-pack/umsp-plugins/ /tmp/umsp-plugins
+				if [ -f "/tmp/conf/umsp.php" ]; then
+					echo "exporting umsp.php"
+					svn export --non-interactive --no-auth-cache --force http://umsp-pack.svn.sourceforge.net/svnroot/umsp-pack/umsp.php /tmp/conf/umsp.php
+				fi
+				#Restricted Plugins
+				logger -t $0 "Exporting restricted plugins"
+				svn export --trust-server-cert --non-interactive --no-auth-cache --force https://svn.wdlxtv.com/svn/UMSP/restricted-plugins/ /tmp/umsp-plugins
+				#Ribalda Plugins
+				logger -t $0 "Exporting Ribalda plugins"
+				cd /tmp
+				rm  -fr ribalda-umsp-plugins-ribalda*
+				wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master && unzip ribalda-umsp-plugins-ribalda-*zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ && rm -fr ribalda-umsp-plugins-ribalda* 
+			fi
+		fi
+		exit 0
+	fi
+	sleep 5
+done
