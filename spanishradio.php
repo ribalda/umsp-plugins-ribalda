@@ -115,6 +115,18 @@ function _pluginCreateStationList() {
 			"use_proxy" => 1,
 		),
 		array(
+			"name" => "Máxima FM",
+			"ico"  => "http://oi56.tinypic.com/1z3njuv.jpg",
+			"url"  => "http://194.169.201.177:8085/liveMaxima.mp3",
+			"use_proxy" => 1,
+		),
+		array(
+			"name" => "Radiolé",
+			"ico"  => "http://oi55.tinypic.com/1s15yd.jpg",
+			"url"  => "http://194.169.201.177:8085/liveRadiOle.mp3",
+			"use_proxy" => 1,
+		),
+		array(
 			"name" => "Cope",
 			"ico"  => "http://oi52.tinypic.com/2prcsap.jpg",
 			"url"  => "http://copefm.cope.stream.flumotion.com/cope/copefm.mp3.m3u",
