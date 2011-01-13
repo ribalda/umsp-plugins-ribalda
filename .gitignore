@@ -3,4 +3,7 @@
 /ossp
 /funciones.php
 *swpa
-/logos
+/logos/*jpg
+/logos/*png
+/logos/*svg
+/logos/*gif
