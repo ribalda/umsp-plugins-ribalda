@@ -145,6 +145,12 @@ function _pluginCreateStationList() {
 			"use_proxy" => 0,
 		),
 		array(
+			"name" => "Loca FM",
+			"ico"  => "http://oi55.tinypic.com/2rh4scj.jpg",
+			"url"  => "http://server2.20comunicacion.com:8024",
+			"use_proxy" => 1,
+		),
+		array(
 			"name" => "BBC World",
 			"ico"  => "http://oi53.tinypic.com/2luvyn7.jpg",
 			"url"  => "http://www.vpr.net/vpr_files/stream_playlists/vpr_bbc_mp3.pls",
