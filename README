@@ -9,3 +9,8 @@ INSTALL:
 If you want to automagically install this scripts in your WDTV. Add this line to the S99user-script file on /tmp/conf and reboot:
 svn export --trust-server-cert --non-interactive --no-auth-cache --force http://svn.github.com/ribalda/umsp-plugins-ribalda.git /tmp/umsp-plugins &
 
+Note: While the svn export of github is broken you can use this lines:
+
+cd /tmp
+rm  -fr ribalda-umsp-plugins-ribalda*
+wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master && unzip ribalda-umsp-plugins-ribalda-*zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ &
