@@ -93,7 +93,7 @@ function _pluginCreateStationList() {
 		array(
 			"name" => "Cadena Ser",
 			"ico"  => "http://oi56.tinypic.com/2je7fch.jpg",
-			"url"  => "http://194.169.201.177:8085/stream/prisacomMadridfm.m3u",
+			"url"  => "http://194.169.201.177:8085/liveser.mp3",
 			"use_proxy" => 1,
 		),
 		array(
