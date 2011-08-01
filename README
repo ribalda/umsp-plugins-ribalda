@@ -16,7 +16,7 @@ Note: While the svn export of github is broken you can use this lines:
 
 cd /tmp
 rm  -fr ribalda-umsp-plugins-ribalda*
-wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master && unzip ribalda-umsp-plugins-ribalda-*zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ &
+wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master -O ribalda-umsp-plugins.zip && unzip ribalda-umsp-plugins.zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ && rm -fr ribalda-umsp-plugins*
 
 
 
@@ -48,7 +48,7 @@ while [ true ] ; do
 				logger -t $0 "Exporting Ribalda plugins"
 				cd /tmp
 				rm  -fr ribalda-umsp-plugins-ribalda*
-				wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master && unzip ribalda-umsp-plugins-ribalda-*zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ && rm -fr ribalda-umsp-plugins-ribalda* 
+				wget --no-check-certificate  https://github.com/ribalda/umsp-plugins-ribalda/zipball/master -O ribalda-umsp-plugins.zip && unzip ribalda-umsp-plugins.zip && cp ribalda-umsp-plugins*/*php /tmp/umsp-plugins/ && rm -fr ribalda-umsp-plugins*
 			fi
 		fi
 		exit 0
